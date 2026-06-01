@@ -4,6 +4,8 @@ import gloss3 from "@/assets/products/gloss-3.jpg";
 import scrub1 from "@/assets/products/scrub-1.jpg";
 import scrub2 from "@/assets/products/scrub-2.jpg";
 import oil1 from "@/assets/products/oil-1.jpg";
+import oil2 from "@/assets/products/oil-2.jpg";
+import oil3 from "@/assets/products/oil-3.jpg";
 import balm1 from "@/assets/products/balm-1.jpg";
 import balm2 from "@/assets/products/balm-2.jpg";
 
@@ -61,7 +63,7 @@ export const products: Product[] = [
       "Honey, Drippin' moves with you. The brush-tip applicator paints on a slick of nourishment with a glossy, dimensional finish — wear it alone or over colour.",
     ritual: "Sweep the brush across lips. Reapply throughout the day as desired.",
     ingredients: ["Honey extract", "Marula oil", "Rosehip oil", "Vitamin E"],
-    images: [oil1],
+    images: [oil1, oil2, oil3],
   },
   {
     slug: "honey-all-day",
