@@ -186,9 +186,7 @@
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.015em;
-    line-height: 1.05;
-    /* TAN Grandeur has tall ascenders/descenders — keep generous vertical room */
-    padding-block: 0.04em;
+    line-height: 1.15;
   }
 }
 
