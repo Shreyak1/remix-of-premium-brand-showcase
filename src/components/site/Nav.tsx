@@ -16,7 +16,7 @@ export function Nav() {
           <Link to="/journal" className="hover:text-foreground transition-colors">Journal</Link>
         </div>
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="HONÉE" className="h-8 md:h-9 w-auto" />
+          <img src={logo} alt="HONÉE" className="h-14 md:h-20 w-auto" />
         </Link>
         <div className="flex-1 flex justify-end items-center gap-6 text-[13px] uppercase tracking-[0.18em] text-foreground/80">
           <button className="hidden md:inline hover:text-foreground transition-colors">Search</button>
