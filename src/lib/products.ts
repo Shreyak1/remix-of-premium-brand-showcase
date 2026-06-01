@@ -9,6 +9,7 @@ import oil2 from "@/assets/products/oil-2.jpg";
 import oil3 from "@/assets/products/oil-3.jpg";
 import balm1 from "@/assets/products/balm-1.jpg";
 import balm2 from "@/assets/products/balm-2.jpg";
+import balm3 from "@/assets/products/balm-3.jpg";
 
 export type Product = {
   slug: string;
@@ -78,7 +79,7 @@ export const products: Product[] = [
       "Honey, All Day protects from dryness with a soft, breathable veil. Honey-inspired ingredients soften and smooth, while the slim profile slips into any pocket or bag.",
     ritual: "Glide on whenever lips need it. Reapply liberally.",
     ingredients: ["Honey extract", "Beeswax", "Shea butter", "Coconut oil"],
-    images: [balm1, balm2],
+    images: [balm1, balm2, balm3],
   },
 ];
 
