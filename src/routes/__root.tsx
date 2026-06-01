@@ -11,6 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Nav } from "../components/site/Nav";
+import { Footer } from "../components/site/Footer";
+import { CartDrawer } from "../components/site/CartDrawer";
 
 function NotFoundComponent() {
   return (
@@ -77,14 +80,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "HONÉE — Honey, Please" },
+      { name: "description", content: "Premium honey-inspired lipcare. Gloss, oil, scrub, and balm crafted for daily ritual." },
+      { name: "author", content: "HONÉE" },
+      { property: "og:title", content: "HONÉE — Honey, Please" },
+      { property: "og:description", content: "Premium honey-inspired lipcare." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "HONÉE" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -118,8 +121,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <Nav />
+      <main>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </main>
+      <Footer />
+      <CartDrawer />
     </QueryClientProvider>
   );
 }
