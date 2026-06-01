@@ -176,29 +176,23 @@ function Index() {
         </div>
       </section>
 
-      {/* RITUAL */}
+      {/* RITUAL TEASER → JOURNAL */}
       <section className="mx-auto max-w-[1400px] px-6 md:px-10 py-24 md:py-32 grid md:grid-cols-2 gap-16 items-center">
         <div className="space-y-6">
           <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60">The Daily Ritual</p>
           <h2 className="font-display text-5xl md:text-7xl leading-[1.05]">
-            Morning. Noon.<br />
-            <span className="italic text-caramel">Night.</span>
+            Sunrise to<br />
+            <span className="italic text-caramel">soft sleep.</span>
           </h2>
-          <div className="space-y-6 pt-4">
-            {[
-              { time: "AM", title: "Smooth", text: "Honey, All Day balm to wake and protect." },
-              { time: "12", title: "Shine", text: "Honey, Look Here gloss for the in-between." },
-              { time: "PM", title: "Restore", text: "Honey, Good Night scrub before the pillow." },
-            ].map((step) => (
-              <div key={step.time} className="flex gap-6 border-t border-border/60 pt-6">
-                <span className="font-display text-3xl text-caramel w-12">{step.time}</span>
-                <div>
-                  <p className="font-display text-xl">{step.title}</p>
-                  <p className="text-sm text-muted-foreground mt-1">{step.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p className="max-w-md text-base md:text-lg leading-relaxed text-foreground/75">
+            Four pieces, four small gestures — a balm to wake with, a gloss for the daylight, a scrub before the pillow, and an oil to drift off in. Read the whole ritual in the Journal.
+          </p>
+          <Link
+            to="/journal"
+            className="inline-flex items-center gap-3 mt-2 text-[12px] uppercase tracking-[0.22em] border-b border-foreground pb-1 hover:text-caramel hover:border-caramel"
+          >
+            Read The Honey Ritual →
+          </Link>
         </div>
         <div className="aspect-[4/5] overflow-hidden" style={{ boxShadow: "var(--shadow-soft)" }}>
           <img src={products[2].images[0]} alt="Honey, Drippin' lip oil" className="w-full h-full object-cover" />
