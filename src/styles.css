@@ -182,6 +182,12 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Hide broken-image alt text + icon; container bg shows through */
+  img {
+    color: transparent;
+    font-size: 0;
+  }
+
   .font-display {
     font-family: var(--font-display);
     font-weight: 400;
