@@ -3,6 +3,7 @@ import gloss2 from "@/assets/products/gloss-2.jpg";
 import gloss3 from "@/assets/products/gloss-3.jpg";
 import scrub1 from "@/assets/products/scrub-1.jpg";
 import scrub2 from "@/assets/products/scrub-2.jpg";
+import scrub3 from "@/assets/products/scrub-3.jpg";
 import oil1 from "@/assets/products/oil-1.jpg";
 import oil2 from "@/assets/products/oil-2.jpg";
 import oil3 from "@/assets/products/oil-3.jpg";
@@ -49,7 +50,7 @@ export const products: Product[] = [
       "Honey, Good Night turns the bedtime routine into a quiet ritual. Sugar fines lift away dryness while honey-inspired emollients comfort and restore. Wake up to lips that feel renewed.",
     ritual: "Massage a small amount onto lips before bed. Leave on overnight or wipe gently after a minute.",
     ingredients: ["Cane sugar", "Honey extract", "Shea butter", "Sweet almond oil"],
-    images: [scrub1, scrub2],
+    images: [scrub1, scrub2, scrub3],
   },
   {
     slug: "honey-drippin",
