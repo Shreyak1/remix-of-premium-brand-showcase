@@ -51,7 +51,7 @@ function ProductPage() {
         <div className="grid md:grid-cols-12 gap-10 md:gap-16 mt-8">
           {/* Gallery */}
           <div className="md:col-span-7 space-y-4">
-            {product.images.map((src, i) => (
+            {product.images.map((src: string, i: number) => (
               <motion.div
                 key={src}
                 initial={{ opacity: 0, y: 30 }}
@@ -97,7 +97,7 @@ function ProductPage() {
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60 mb-2">Honey-inspired notes</p>
                   <ul className="text-sm space-y-1.5">
-                    {product.ingredients.map((ing) => (
+                    {product.ingredients.map((ing: string) => (
                       <li key={ing} className="flex gap-3">
                         <span className="text-caramel">—</span>
                         {ing}
