@@ -19,6 +19,15 @@
 }
 
 @font-face {
+  font-family: "TAN Grandeur";
+  src: url("/fonts/TANGrandeur-Alt.woff2") format("woff2"),
+       url("/fonts/TANGrandeur-Alt.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "DM Sans";
   src: url("https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAop8.woff2") format("woff2");
   font-weight: 100 1000;
@@ -173,10 +182,17 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Hide broken-image alt text + icon; container bg shows through */
+  img {
+    color: transparent;
+    font-size: 0;
+  }
+
   .font-display {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
   }
 }
 
