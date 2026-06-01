@@ -1,11 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { products } from "@/lib/products";
-import sunrise from "@/assets/ritual/step-1-sunrise.png";
-import midday from "@/assets/ritual/step-2-midday.png";
-import moon from "@/assets/ritual/step-3-moon.png";
-import drip from "@/assets/ritual/step-4-drip.png";
+import swatchBalm from "@/assets/ritual/swatch-balm.png";
+import swatchGloss from "@/assets/ritual/swatch-gloss.png";
+import swatchScrub from "@/assets/ritual/swatch-scrub.png";
+import swatchOil from "@/assets/ritual/swatch-oil.png";
 
 export const Route = createFileRoute("/journal")({
   head: () => ({
@@ -21,21 +20,24 @@ export const Route = createFileRoute("/journal")({
 });
 
 type Step = {
+  num: string;
+  label: string;
   time: string;
-  hour: string;
-  kicker: string;
-  title: string;
-  italic: string;
   body: string;
   ritual: string;
   productSlug: string;
   productName: string;
   productTagline: string;
-  illustration: string;
-  bg: string;
+  swatch: string;
+  swatchTop: string;
+  swatchLeft: string;
+  swatchSize: string;
+  swatchRotate: number;
+  labelTop: string;
+  labelLeft: string;
 };
 
-function getStepsFromProducts(): Step[] {
+function getSteps(): Step[] {
   const find = (slug: string) => products.find((p) => p.slug === slug)!;
   const allDay = find("honey-all-day");
   const lookHere = find("honey-look-here");
@@ -44,76 +46,78 @@ function getStepsFromProducts(): Step[] {
 
   return [
     {
-      time: "AM",
-      hour: "07:00",
-      kicker: "Step One — Wake",
-      title: "Wake the",
-      italic: "softness.",
-      body: "Mornings ask for very little. A clean slate, a slow breath, and a balm that protects without ceremony. Honey, All Day glides on like sunrise — quiet, warm, and built to last until the world is fully awake.",
+      num: "1.",
+      label: "BALM",
+      time: "AM · 07:00",
+      body: "A clean slate, a slow breath, a balm that protects without ceremony. Honey, All Day glides on like sunrise — warm and built to last until the world is fully awake.",
       ritual: "Glide on bare lips. Layer again before stepping outside.",
       productSlug: allDay.slug,
       productName: allDay.name,
       productTagline: allDay.tagline,
-      illustration: sunrise,
-      bg: "oklch(0.95 0.04 80)",
+      swatch: swatchBalm,
+      swatchTop: "2%",
+      swatchLeft: "0%",
+      swatchSize: "38%",
+      swatchRotate: -8,
+      labelTop: "14%",
+      labelLeft: "46%",
     },
     {
-      time: "NOON",
-      hour: "12:30",
-      kicker: "Step Two — Shine",
-      title: "Step out, lit",
-      italic: "from within.",
-      body: "Midday is for being seen. Sweep on Honey, Look Here for a mirrored finish that catches the light without weight or stick — a little gloss to carry you through lunch, errands, and that one good photograph.",
+      num: "2.",
+      label: "GLOSS",
+      time: "NOON · 12:30",
+      body: "Midday is for being seen. Sweep on Honey, Look Here for a mirrored finish that catches the light without weight or stick.",
       ritual: "Apply over bare lips or atop colour. Reapply at golden hour.",
       productSlug: lookHere.slug,
       productName: lookHere.name,
       productTagline: lookHere.tagline,
-      illustration: midday,
-      bg: "oklch(0.93 0.07 82)",
+      swatch: swatchGloss,
+      swatchTop: "26%",
+      swatchLeft: "60%",
+      swatchSize: "34%",
+      swatchRotate: 14,
+      labelTop: "36%",
+      labelLeft: "22%",
     },
     {
-      time: "PM",
-      hour: "21:30",
-      kicker: "Step Three — Renew",
-      title: "Polish away",
-      italic: "the day.",
-      body: "Before the pillow, a small ritual. Massage Honey, Good Night across your lips in slow circles — sugar fines lift the day away, honey-inspired emollients leave only softness behind. Wipe gently, or simply let it linger.",
-      ritual: "Massage in slow circles for one minute. Wipe or leave on overnight.",
+      num: "3.",
+      label: "SCRUB",
+      time: "PM · 21:30",
+      body: "Before the pillow, a small ritual. Massage Honey, Good Night in slow circles — sugar fines lift the day away, honey-inspired emollients leave only softness behind.",
+      ritual: "Massage in slow circles for one minute. Wipe or leave overnight.",
       productSlug: goodNight.slug,
       productName: goodNight.name,
       productTagline: goodNight.tagline,
-      illustration: moon,
-      bg: "oklch(0.88 0.05 70)",
+      swatch: swatchScrub,
+      swatchTop: "52%",
+      swatchLeft: "4%",
+      swatchSize: "32%",
+      swatchRotate: 6,
+      labelTop: "58%",
+      labelLeft: "46%",
     },
     {
-      time: "NIGHT",
-      hour: "22:00",
-      kicker: "Step Four — Heal",
-      title: "Drench, and",
-      italic: "drift off.",
-      body: "After the scrub, the drink. Paint Honey, Drippin' across newly-smoothed lips and let marula, rosehip, and honey-inspired botanicals do their slow work overnight. Wake up to lips that feel poured, not patched.",
+      num: "4.",
+      label: "OIL",
+      time: "NIGHT · 22:00",
+      body: "After the scrub, the drink. Paint Honey, Drippin' across newly-smoothed lips and let it do its slow work overnight. Wake to lips that feel poured, not patched.",
       ritual: "Sweep the brush across lips as the last step before sleep.",
       productSlug: drippin.slug,
       productName: drippin.name,
       productTagline: drippin.tagline,
-      illustration: drip,
-      bg: "oklch(0.84 0.04 60)",
+      swatch: swatchOil,
+      swatchTop: "70%",
+      swatchLeft: "62%",
+      swatchSize: "32%",
+      swatchRotate: -12,
+      labelTop: "80%",
+      labelLeft: "22%",
     },
   ];
 }
 
 function Journal() {
-  const steps = getStepsFromProducts();
-  const [index, setIndex] = useState(0);
-  const [auto, setAuto] = useState(true);
-
-  useEffect(() => {
-    if (!auto) return;
-    const id = window.setTimeout(() => setIndex((i) => (i + 1) % steps.length), 7000);
-    return () => window.clearTimeout(id);
-  }, [index, auto, steps.length]);
-
-  const step = steps[index];
+  const steps = getSteps();
 
   return (
     <>
@@ -128,131 +132,131 @@ function Journal() {
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           className="font-display text-5xl md:text-8xl leading-[1.08]"
         >
-          The Honey Ritual,<br />
-          <span className="italic text-caramel">in four parts.</span>
+          A 4-Step<br />
+          <span className="italic text-caramel">Honey Ritual.</span>
         </motion.h1>
         <p className="mt-8 max-w-xl mx-auto text-base md:text-lg leading-relaxed text-foreground/75">
-          Sunrise to soft sleep. A slow choreography of four small gestures, each one composed to leave your lips a little better than it found them.
+          Sunrise to soft sleep. Four small gestures, each composed to leave your lips a little better than it found them.
         </p>
       </section>
 
-      {/* SLIDESHOW */}
-      <section
-        className="relative overflow-hidden border-y border-border/40 transition-colors duration-700"
-        style={{ background: step.bg }}
-        onMouseEnter={() => setAuto(false)}
-        onMouseLeave={() => setAuto(true)}
-      >
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-16 md:py-24 grid md:grid-cols-12 gap-10 md:gap-16 items-center min-h-[560px] md:min-h-[640px]">
-          {/* Illustration */}
-          <div className="md:col-span-5 relative flex justify-center md:justify-start">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={`ill-${index}`}
-                src={step.illustration}
-                alt={`${step.productName} ritual illustration`}
-                width={768}
-                height={768}
-                loading="lazy"
-                initial={{ opacity: 0, scale: 0.92, rotate: -4 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                exit={{ opacity: 0, scale: 0.96, rotate: 4 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="w-[280px] md:w-[440px] h-auto select-none pointer-events-none drop-shadow-[0_30px_60px_rgba(92,58,42,0.18)]"
+      {/* POSTER */}
+      <section className="border-y border-border/40 bg-[oklch(0.97_0.02_85)]">
+        <div className="mx-auto max-w-[1000px] px-6 md:px-10 py-16 md:py-24">
+          <div className="relative w-full aspect-[3/4]">
+            {/* Dotted connector spine */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M 50,18 L 50,40 L 50,62 L 50,84"
+                stroke="currentColor"
+                strokeWidth="1"
+                strokeDasharray="0.5 2"
+                fill="none"
+                className="text-foreground/55"
+                vectorEffect="non-scaling-stroke"
+                strokeLinecap="round"
               />
-            </AnimatePresence>
-          </div>
-
-          {/* Copy */}
-          <div className="md:col-span-7 relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`copy-${index}`}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="flex items-baseline gap-4 mb-6">
-                  <span className="font-display text-5xl md:text-6xl text-caramel leading-none">
-                    {step.time}
-                  </span>
-                  <span className="text-[11px] uppercase tracking-[0.28em] text-foreground/60">
-                    {step.kicker} · {step.hour}
-                  </span>
-                </div>
-                <h2 className="font-display text-5xl md:text-7xl leading-[1.08]">
-                  {step.title}<br />
-                  <span className="italic text-caramel">{step.italic}</span>
-                </h2>
-                <p className="mt-6 max-w-xl text-base md:text-lg leading-relaxed text-foreground/80">
-                  {step.body}
-                </p>
-                <p className="mt-5 max-w-xl text-sm uppercase tracking-[0.18em] text-foreground/60">
-                  Ritual · {step.ritual}
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-5">
-                  <Link
-                    to="/product/$slug"
-                    params={{ slug: step.productSlug }}
-                    className="group inline-flex items-center gap-3 bg-foreground text-background px-6 py-3 text-[12px] uppercase tracking-[0.22em] hover:bg-caramel transition-colors"
-                  >
-                    {step.productName}
-                    <span className="transition-transform group-hover:translate-x-1">→</span>
-                  </Link>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-foreground/60">
-                    {step.productTagline}
-                  </span>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-
-        {/* Controls */}
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 pb-10 md:pb-14 flex items-center justify-between gap-6">
-          <div className="flex gap-3">
-            {steps.map((s, i) => (
-              <button
-                key={s.time}
-                onClick={() => setIndex(i)}
-                aria-label={`Go to step ${i + 1}: ${s.productName}`}
-                className="group flex flex-col items-start gap-2"
-              >
-                <span
-                  className={`h-px transition-all duration-500 ${
-                    i === index ? "w-16 bg-foreground" : "w-10 bg-foreground/30 group-hover:bg-foreground/60"
-                  }`}
+              {[18, 40, 62, 84].map((cy) => (
+                <circle
+                  key={cy}
+                  cx="50"
+                  cy={cy}
+                  r="0.7"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  className="text-foreground/70"
+                  vectorEffect="non-scaling-stroke"
                 />
-                <span
-                  className={`text-[10px] uppercase tracking-[0.22em] transition-colors ${
-                    i === index ? "text-foreground" : "text-foreground/50"
-                  }`}
+              ))}
+            </svg>
+
+            {/* Swatches */}
+            {steps.map((s, i) => (
+              <motion.img
+                key={`sw-${i}`}
+                src={s.swatch}
+                alt={`${s.productName} swatch`}
+                width={1024}
+                height={1024}
+                loading="lazy"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.9, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  top: s.swatchTop,
+                  left: s.swatchLeft,
+                  width: s.swatchSize,
+                  transform: `rotate(${s.swatchRotate}deg)`,
+                }}
+                className="absolute h-auto select-none pointer-events-none mix-blend-multiply"
+              />
+            ))}
+
+            {/* Labels */}
+            {steps.map((s, i) => (
+              <motion.div
+                key={`lb-${i}`}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: 0.2 + i * 0.12 }}
+                style={{ top: s.labelTop, left: s.labelLeft }}
+                className="absolute"
+              >
+                <Link
+                  to="/product/$slug"
+                  params={{ slug: s.productSlug }}
+                  className="group inline-flex flex-col gap-1"
                 >
-                  {s.time}
-                </span>
-              </button>
+                  <span className="inline-block bg-caramel px-3 py-1.5 font-display text-xl md:text-3xl text-background tracking-tight group-hover:bg-foreground transition-colors whitespace-nowrap">
+                    {s.num} {s.label}
+                  </span>
+                  <span className="text-[10px] md:text-[11px] uppercase tracking-[0.22em] text-foreground/60 pl-1">
+                    {s.time}
+                  </span>
+                </Link>
+              </motion.div>
             ))}
           </div>
-          <div className="flex items-center gap-4 text-[11px] uppercase tracking-[0.22em] text-foreground/60">
-            <button
-              onClick={() => setIndex((i) => (i - 1 + steps.length) % steps.length)}
-              className="hover:text-foreground transition-colors"
-              aria-label="Previous step"
-            >
-              ← Prev
-            </button>
-            <span className="tabular-nums">
-              {String(index + 1).padStart(2, "0")} / {String(steps.length).padStart(2, "0")}
-            </span>
-            <button
-              onClick={() => setIndex((i) => (i + 1) % steps.length)}
-              className="hover:text-foreground transition-colors"
-              aria-label="Next step"
-            >
-              Next →
-            </button>
-          </div>
+
+          <p className="mt-12 text-center text-[11px] uppercase tracking-[0.28em] text-foreground/60">
+            * Reapply liberally. Honey forgives.
+          </p>
+        </div>
+      </section>
+
+      {/* RITUAL NOTES */}
+      <section className="mx-auto max-w-[1100px] px-6 md:px-10 py-20 md:py-28">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-14">
+          {steps.map((s) => (
+            <div key={s.productSlug} className="flex gap-5">
+              <span className="font-display text-5xl text-caramel leading-none">{s.num}</span>
+              <div className="flex-1">
+                <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/60 mb-2">
+                  {s.time} · {s.label}
+                </p>
+                <h3 className="font-display text-2xl md:text-3xl mb-3">{s.productName}</h3>
+                <p className="text-foreground/80 leading-relaxed mb-3">{s.body}</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-foreground/55 mb-4">
+                  Ritual · {s.ritual}
+                </p>
+                <Link
+                  to="/product/$slug"
+                  params={{ slug: s.productSlug }}
+                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-foreground hover:text-caramel transition-colors"
+                >
+                  Shop {s.productTagline} <span>→</span>
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
