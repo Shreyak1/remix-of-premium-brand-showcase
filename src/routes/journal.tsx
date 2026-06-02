@@ -130,7 +130,7 @@ function Journal() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-5xl md:text-8xl leading-[1.7]"
+          className="font-display text-5xl md:text-8xl leading-[2]"
         >
           A 4-Step<br />
           <span className="italic text-caramel">Honey Ritual.</span>
@@ -263,7 +263,7 @@ function Journal() {
       {/* CLOSING */}
       <section className="mx-auto max-w-[900px] px-6 md:px-10 py-24 md:py-32 text-center">
         <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-6">The Whole Ritual</p>
-        <h2 className="font-display text-4xl md:text-6xl leading-[1.7]">
+        <h2 className="font-display text-4xl md:text-6xl leading-[2]">
           Four pieces.<br />
           <span className="italic text-caramel">One slow, golden day.</span>
         </h2>
