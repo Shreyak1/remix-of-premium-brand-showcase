@@ -21,7 +21,7 @@ function Shop() {
     <section className="mx-auto max-w-[1400px] px-6 md:px-10 pt-16 md:pt-24 pb-24">
       <div className="mb-16 md:mb-24 max-w-2xl">
         <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-10">The Collection</p>
-        <h1 className="font-display text-6xl md:text-8xl leading-[1.2] pb-3">
+        <h1 className="font-display text-6xl md:text-8xl leading-[1.5] pb-3">
           Lipcare,<br />
           <span className="italic text-caramel">curated.</span>
         </h1>
