@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-20">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <h3 className="font-display text-5xl md:text-6xl leading-[1.5]">
+            <h3 className="font-display text-5xl md:text-6xl leading-[1.7]">
               Honey,<br />Please.
             </h3>
             <p className="mt-6 text-sm text-muted-foreground max-w-sm">

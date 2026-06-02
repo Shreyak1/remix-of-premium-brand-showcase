@@ -117,7 +117,7 @@ function Index() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
             <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-4">The Collection</p>
-            <h2 className="font-display text-5xl md:text-7xl leading-[1.5]">
+            <h2 className="font-display text-5xl md:text-7xl leading-[1.7]">
               Four pieces.<br />
               <span className="italic text-caramel">One ritual.</span>
             </h2>
@@ -160,7 +160,7 @@ function Index() {
       <section className="bg-foreground text-cream py-28 md:py-40">
         <div className="mx-auto max-w-[1100px] px-6 md:px-10 text-center">
           <p className="text-[11px] uppercase tracking-[0.28em] text-cream/60 mb-8">Our Philosophy</p>
-          <h2 className="font-display text-5xl md:text-8xl leading-[1.5]">
+          <h2 className="font-display text-5xl md:text-8xl leading-[1.7]">
             Slow as honey.<br />
             <span className="italic" style={{ color: "var(--honey)" }}>Made to linger.</span>
           </h2>
@@ -180,7 +180,7 @@ function Index() {
       <section className="mx-auto max-w-[1400px] px-6 md:px-10 py-24 md:py-32 grid md:grid-cols-2 gap-16 items-center">
         <div className="space-y-6">
           <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60">The Daily Ritual</p>
-          <h2 className="font-display text-5xl md:text-7xl leading-[1.5]">
+          <h2 className="font-display text-5xl md:text-7xl leading-[1.7]">
             Sunrise to<br />
             <span className="italic text-caramel">soft sleep.</span>
           </h2>
