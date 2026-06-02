@@ -68,7 +68,7 @@ function ProductPage() {
           <div className="md:col-span-5">
             <div className="md:sticky md:top-28">
               <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60">{product.type}</p>
-              <h1 className="font-display text-5xl md:text-7xl leading-[1.05] mt-3">
+              <h1 className="font-display text-5xl md:text-7xl leading-[1.25] mt-3">
                 {product.name.split(",")[0]},
                 <br />
                 <span className="italic text-caramel">{product.name.split(",")[1]?.trim()}.</span>
@@ -114,7 +114,7 @@ function ProductPage() {
       {/* Suggested */}
       <section className="mx-auto max-w-[1400px] px-6 md:px-10 mt-32 md:mt-40">
         <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-6">Pair With</p>
-        <h2 className="font-display text-4xl md:text-6xl leading-[1.05] mb-12">
+        <h2 className="font-display text-4xl md:text-6xl leading-[1.25] mb-12">
           Continue the <span className="italic text-caramel">ritual</span>.
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12">
