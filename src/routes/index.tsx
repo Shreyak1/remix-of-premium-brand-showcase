@@ -40,7 +40,7 @@ function Index() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
               className="font-display text-[14vw] md:text-[9rem] tracking-[-0.02em]"
-              style={{ lineHeight: 1.45 }}
+              style={{ lineHeight: 1.7 }}
             >
               <span className="block">Honey,</span>
               <span className="block italic text-caramel">Please.</span>
