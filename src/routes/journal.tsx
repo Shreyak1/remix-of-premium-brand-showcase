@@ -34,7 +34,7 @@ type Step = {
   swatchSize: string;
   swatchRotate: number;
   labelTop: string;
-  labelLeft: string;
+  labelSide: "left" | "right";
 };
 
 function getSteps(): Step[] {
@@ -59,8 +59,8 @@ function getSteps(): Step[] {
       swatchLeft: "0%",
       swatchSize: "38%",
       swatchRotate: -8,
-      labelTop: "14%",
-      labelLeft: "46%",
+      labelTop: "18%",
+      labelSide: "right",
     },
     {
       num: "2.",
@@ -76,8 +76,8 @@ function getSteps(): Step[] {
       swatchLeft: "60%",
       swatchSize: "34%",
       swatchRotate: 14,
-      labelTop: "36%",
-      labelLeft: "22%",
+      labelTop: "40%",
+      labelSide: "left",
     },
     {
       num: "3.",
@@ -93,8 +93,8 @@ function getSteps(): Step[] {
       swatchLeft: "4%",
       swatchSize: "32%",
       swatchRotate: 6,
-      labelTop: "58%",
-      labelLeft: "46%",
+      labelTop: "62%",
+      labelSide: "right",
     },
     {
       num: "4.",
@@ -110,8 +110,8 @@ function getSteps(): Step[] {
       swatchLeft: "62%",
       swatchSize: "32%",
       swatchRotate: -12,
-      labelTop: "80%",
-      labelLeft: "22%",
+      labelTop: "84%",
+      labelSide: "left",
     },
   ];
 }
@@ -207,13 +207,19 @@ function Journal() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.12 }}
-                style={{ top: s.labelTop, left: s.labelLeft }}
+                style={{
+                  top: s.labelTop,
+                  ...(s.labelSide === "right"
+                    ? { left: "calc(50% + 1.25rem)" }
+                    : { right: "calc(50% + 1.25rem)" }),
+                  transform: "translateY(-50%)",
+                }}
                 className="absolute"
               >
                 <Link
                   to="/product/$slug"
                   params={{ slug: s.productSlug }}
-                  className="group inline-flex flex-col gap-1"
+                  className={`group inline-flex flex-col gap-1 ${s.labelSide === "left" ? "items-end" : "items-start"}`}
                 >
                   <span className="inline-block bg-caramel px-3 py-1.5 font-display text-xl md:text-3xl text-background tracking-tight group-hover:bg-foreground transition-colors whitespace-nowrap">
                     {s.num} {s.label}
