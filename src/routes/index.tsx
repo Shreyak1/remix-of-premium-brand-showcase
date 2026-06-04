@@ -25,8 +25,8 @@ function Index() {
           className="absolute inset-0 -z-10"
           style={{ background: "var(--gradient-warm)" }}
         />
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 pt-20 md:pt-28 pb-24 md:pb-40 grid md:grid-cols-12 gap-10 items-end">
-          <div className="md:col-span-7">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 pt-16 md:pt-20 pb-16 md:pb-24 grid md:grid-cols-12 gap-10 items-stretch">
+          <div className="md:col-span-7 flex flex-col justify-between">
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -39,17 +39,17 @@ function Index() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-              className="font-display text-[14vw] md:text-[9rem] tracking-[-0.02em]"
-              style={{ lineHeight: 2 }}
+              className="font-display text-[14vw] md:text-[8rem] tracking-[-0.02em]"
+              style={{ lineHeight: 1.05 }}
             >
               <span className="block">Honey,</span>
-              <span className="block italic text-caramel">Please.</span>
+              <span className="block italic text-caramel mt-4">Please.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
-              className="mt-8 max-w-md text-base md:text-lg leading-relaxed text-foreground/75"
+              className="mt-10 max-w-md text-base md:text-lg leading-relaxed text-foreground/75"
             >
               Lipcare composed like couture. Honey-inspired botanicals, slow-rendered textures, and a finish that lingers like late afternoon light.
             </motion.p>
@@ -57,7 +57,7 @@ function Index() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-10 flex items-center gap-6"
+              className="mt-8 flex items-center gap-6"
             >
               <Link
                 to="/shop"
@@ -75,9 +75,9 @@ function Index() {
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="md:col-span-5 relative"
+            className="md:col-span-5 relative flex"
           >
-            <div className="aspect-[4/5] overflow-hidden" style={{ boxShadow: "var(--shadow-warm)" }}>
+            <div className="w-full overflow-hidden" style={{ boxShadow: "var(--shadow-warm)" }}>
               <motion.img
                 src={heroCollection}
                 alt="HONÉE collection"
