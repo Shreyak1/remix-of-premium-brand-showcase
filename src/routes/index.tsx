@@ -39,11 +39,11 @@ function Index() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-              className="font-display text-[14vw] md:text-[8rem] tracking-[-0.02em]"
-              style={{ lineHeight: 1.05 }}
+              className="font-display text-[11vw] md:text-[5.5rem] lg:text-[6.5rem] tracking-[-0.02em]"
+              style={{ lineHeight: 1.15 }}
             >
               <span className="block">Honey,</span>
-              <span className="block italic text-caramel mt-4">Please.</span>
+              <span className="block italic text-caramel">Please.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
