@@ -33,7 +33,7 @@ function About() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-6xl md:text-9xl leading-[2]"
+          className="font-display md:text-9xl leading-[2] text-6xl"
         >
           A small house,<br />
           <span className="italic text-caramel">built on honey.</span>
