@@ -123,14 +123,14 @@ function Journal() {
     <>
       {/* HEADER */}
       <section className="mx-auto max-w-[1400px] px-6 md:px-10 pt-20 md:pt-28 pb-12 md:pb-16 text-center">
-        <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-6">
+        <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-10">
           Journal — Vol. 01
         </p>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-5xl md:text-8xl leading-[2]"
+          className="font-display text-5xl md:text-8xl leading-[1.2]"
         >
           A 4-Step<br />
           <span className="italic text-caramel">Honey Ritual.</span>
