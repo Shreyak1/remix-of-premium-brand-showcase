@@ -116,8 +116,9 @@ function About() {
 
       <section id="faq" className="mx-auto max-w-[900px] px-6 md:px-10 pb-32 scroll-mt-24">
         <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-4 text-center">FAQ</p>
-        <h2 className="font-display text-5xl md:text-7xl leading-[1.1] text-center mb-12">
-          Honey, <span className="italic text-caramel">ask away.</span>
+        <h2 className="font-display text-5xl md:text-6xl leading-[1.3] text-center mb-12">
+          Honey,<br />
+          <span className="italic text-caramel">ask away.</span>
         </h2>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="q1">
