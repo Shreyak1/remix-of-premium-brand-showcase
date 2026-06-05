@@ -28,12 +28,12 @@ function About() {
   return (
     <>
       <section className="mx-auto max-w-[1100px] px-6 md:px-10 pt-24 md:pt-40 pb-24 text-center">
-        <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-8">Our Story</p>
+        <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-14 md:mb-16">Our Story</p>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.15] whitespace-nowrap"
+          className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.3] whitespace-nowrap"
         >
           A small house,<br />
           <span className="italic text-caramel">built on honey.</span>
