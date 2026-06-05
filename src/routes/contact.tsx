@@ -44,19 +44,19 @@ function Contact() {
   return (
     <>
       <section className="mx-auto max-w-[1100px] px-6 md:px-10 pt-24 md:pt-40 pb-16 text-center">
-        <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-8">
+        <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-14 md:mb-16">
           Corporate Gifting & Bulk Orders
         </p>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-6xl md:text-8xl leading-[1.1]"
+          className="font-display text-6xl md:text-8xl leading-[1.25]"
         >
           Let's make<br />
           <span className="italic text-caramel">something sweet.</span>
         </motion.h1>
-        <p className="mt-8 text-lg leading-relaxed text-foreground/80 max-w-2xl mx-auto">
+        <p className="mt-10 text-lg leading-relaxed text-foreground/80 max-w-2xl mx-auto">
           Hosting an event, building a welcome kit, or stocking your shelves? We
           partner on custom gifting, branded packaging, and wholesale quantities
           starting at 25 units.

@@ -123,14 +123,14 @@ function Journal() {
     <>
       {/* HEADER */}
       <section className="mx-auto max-w-[1400px] px-6 md:px-10 pt-20 md:pt-28 pb-12 md:pb-16 text-center">
-        <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-6">
+        <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-10">
           Journal — Vol. 01
         </p>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-5xl md:text-8xl leading-[2]"
+          className="font-display text-5xl md:text-8xl leading-[1.2]"
         >
           A 4-Step<br />
           <span className="italic text-caramel">Honey Ritual.</span>
@@ -245,12 +245,12 @@ function Journal() {
             <div key={s.productSlug} className="flex gap-5">
               <span className="font-display text-5xl text-caramel leading-none">{s.num}</span>
               <div className="flex-1">
-                <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/60 mb-2">
+                <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/60 mb-4">
                   {s.time} · {s.label}
                 </p>
-                <h3 className="font-display text-2xl md:text-3xl mb-3">{s.productName}</h3>
-                <p className="text-foreground/80 leading-relaxed mb-3">{s.body}</p>
-                <p className="text-xs uppercase tracking-[0.18em] text-foreground/55 mb-4">
+                <h3 className="font-display text-2xl md:text-3xl mb-5">{s.productName}</h3>
+                <p className="text-foreground/80 leading-relaxed mb-5">{s.body}</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-foreground/55 mb-6">
                   Ritual · {s.ritual}
                 </p>
                 <Link

@@ -68,7 +68,7 @@ function ProductPage() {
           <div className="md:col-span-5">
             <div className="md:sticky md:top-28">
               <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60">{product.type}</p>
-              <h1 className="font-display text-5xl md:text-7xl leading-[2] mt-3">
+              <h1 className="font-display text-5xl md:text-7xl leading-[1.2] mt-5">
                 {product.name.split(",")[0]},
                 <br />
                 <span className="italic text-caramel">{product.name.split(",")[1]?.trim()}.</span>
@@ -91,11 +91,11 @@ function ProductPage() {
 
               <div className="mt-12 space-y-6 border-t border-border/60 pt-8">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60 mb-2">Ritual</p>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60 mb-3">Ritual</p>
                   <p className="text-sm leading-relaxed">{product.ritual}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60 mb-2">Honey-inspired notes</p>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60 mb-3">Honey-inspired notes</p>
                   <ul className="text-sm space-y-1.5">
                     {product.ingredients.map((ing: string) => (
                       <li key={ing} className="flex gap-3">
