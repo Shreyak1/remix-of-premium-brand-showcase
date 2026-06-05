@@ -27,16 +27,16 @@ export function Footer() {
             <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/60 mb-4">House</p>
             <ul className="space-y-2.5 text-sm">
               <li><Link to="/about">About</Link></li>
-              <li><a href="#">Journal</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><Link to="/journal">Journal</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
           <div className="md:col-span-2">
             <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/60 mb-4">Care</p>
             <ul className="space-y-2.5 text-sm">
-              <li><a href="#">Shipping</a></li>
-              <li><a href="#">Returns</a></li>
-              <li><a href="#">FAQ</a></li>
+              <li><Link to="/about" hash="shipping">Shipping</Link></li>
+              <li><Link to="/about" hash="returns">Returns</Link></li>
+              <li><Link to="/about" hash="faq">FAQ</Link></li>
             </ul>
           </div>
         </div>

@@ -19,7 +19,7 @@ export function Nav() {
           <img src={logo} alt="HONÉE" className="h-10 md:h-12 w-auto" />
         </Link>
         <div className="flex-1 flex justify-end items-center gap-6 text-[13px] uppercase tracking-[0.18em] text-foreground/80">
-          <button className="hidden md:inline hover:text-foreground transition-colors">Search</button>
+          <Link to="/contact" className="hidden md:inline hover:text-foreground transition-colors">Contact</Link>
           <button
             onClick={() => setOpen(true)}
             className="hover:text-foreground transition-colors"
