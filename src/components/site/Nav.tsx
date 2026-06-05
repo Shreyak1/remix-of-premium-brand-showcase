@@ -25,7 +25,7 @@ export function Nav() {
             className="hover:text-foreground transition-colors"
             aria-label="Open cart"
           >
-            Bag {count > 0 && <span className="ml-1">({count})</span>}
+            BAG {count > 0 && <span className="ml-1">({count})</span>}
           </button>
         </div>
       </nav>
