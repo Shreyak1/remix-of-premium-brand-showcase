@@ -145,7 +145,7 @@ function Index() {
                   />
                 </div>
                 <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60">{p.type}</p>
-                <h3 className="font-display text-2xl mt-1 leading-tight">{p.name}</h3>
+                <h3 className="font-display text-2xl mt-3 leading-tight">{p.name}</h3>
                 <div className="mt-3 flex justify-between items-center text-sm">
                   <span className="text-muted-foreground">{p.tagline}</span>
                   <span>${p.price}</span>

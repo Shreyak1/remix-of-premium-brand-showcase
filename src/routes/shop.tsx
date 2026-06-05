@@ -57,7 +57,7 @@ function Shop() {
               <div className="mt-6 flex justify-between items-start">
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60">{p.type}</p>
-                  <h2 className="font-display text-3xl md:text-4xl mt-2 leading-tight">{p.name}</h2>
+                  <h2 className="font-display text-3xl md:text-4xl mt-4 leading-tight">{p.name}</h2>
                   <p className="mt-2 text-sm text-muted-foreground max-w-md">{p.shortDescription}</p>
                 </div>
                 <span className="font-display text-2xl">${p.price}</span>
