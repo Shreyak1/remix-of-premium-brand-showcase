@@ -245,12 +245,12 @@ function Journal() {
             <div key={s.productSlug} className="flex gap-5">
               <span className="font-display text-5xl text-caramel leading-none">{s.num}</span>
               <div className="flex-1">
-                <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/60 mb-2">
+                <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/60 mb-4">
                   {s.time} · {s.label}
                 </p>
-                <h3 className="font-display text-2xl md:text-3xl mb-3">{s.productName}</h3>
-                <p className="text-foreground/80 leading-relaxed mb-3">{s.body}</p>
-                <p className="text-xs uppercase tracking-[0.18em] text-foreground/55 mb-4">
+                <h3 className="font-display text-2xl md:text-3xl mb-5">{s.productName}</h3>
+                <p className="text-foreground/80 leading-relaxed mb-5">{s.body}</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-foreground/55 mb-6">
                   Ritual · {s.ritual}
                 </p>
                 <Link
