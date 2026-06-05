@@ -97,7 +97,7 @@ function About() {
 
       <section className="mx-auto max-w-[1100px] px-6 md:px-10 pb-24 grid md:grid-cols-2 gap-16">
         <div id="shipping" className="scroll-mt-24">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-4">Shipping</p>
+          <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-6">Shipping</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight mb-6">Slow, careful, traceable.</h2>
           <div className="space-y-4 text-base leading-relaxed text-foreground/85">
             <p>Orders ship within 2–3 business days from our small studio. Standard delivery arrives in 4–7 business days; express in 2–3.</p>
@@ -105,7 +105,7 @@ function About() {
           </div>
         </div>
         <div id="returns" className="scroll-mt-24">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-4">Returns</p>
+          <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-6">Returns</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight mb-6">Thirty quiet days.</h2>
           <div className="space-y-4 text-base leading-relaxed text-foreground/85">
             <p>If a product isn't right for you, return it within 30 days of delivery — opened or unopened — for a full refund. We'll send a prepaid label.</p>
@@ -115,7 +115,7 @@ function About() {
       </section>
 
       <section id="faq" className="mx-auto max-w-[900px] px-6 md:px-10 pb-32 scroll-mt-24">
-        <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-4 text-center">FAQ</p>
+        <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-6 text-center">FAQ</p>
         <h2 className="font-display text-5xl md:text-6xl leading-[1.3] text-center mb-12">
           Honey,<br />
           <span className="italic text-caramel">ask away.</span>
