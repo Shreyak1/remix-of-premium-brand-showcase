@@ -122,49 +122,49 @@ function About() {
         </h2>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="q1">
-            <AccordionTrigger className="text-lg font-display">Where does your honey come from?</AccordionTrigger>
+            <AccordionTrigger className="text-lg font-sans">Where does your honey come from?</AccordionTrigger>
             <AccordionContent className="text-base leading-relaxed text-foreground/85">
               All of our honey is sourced from a small collective of family-run apiaries in the foothills of New Zealand and the Mediterranean. Every batch is raw, unfiltered, and traceable to the hive it came from.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="q2">
-            <AccordionTrigger className="text-lg font-display">Are your products organic?</AccordionTrigger>
+            <AccordionTrigger className="text-lg font-sans">Are your products organic?</AccordionTrigger>
             <AccordionContent className="text-base leading-relaxed text-foreground/85">
               Every botanical ingredient we use is certified organic. Our base oils, butters, and waxes carry COSMOS Organic certification, and we never use synthetic fragrance, parabens, or petroleum derivatives.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="q3">
-            <AccordionTrigger className="text-lg font-display">Is HONÉE cruelty-free?</AccordionTrigger>
+            <AccordionTrigger className="text-lg font-sans">Is HONÉE cruelty-free?</AccordionTrigger>
             <AccordionContent className="text-base leading-relaxed text-foreground/85">
               Always. We are Leaping Bunny certified and never test on animals — not our formulas, not our ingredients, not at any stage. Our beeswax and honey are gathered using ethical, low-intervention practices that prioritize hive health.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="q4">
-            <AccordionTrigger className="text-lg font-display">Which skin types can use HONÉE?</AccordionTrigger>
+            <AccordionTrigger className="text-lg font-sans">Which skin types can use HONÉE?</AccordionTrigger>
             <AccordionContent className="text-base leading-relaxed text-foreground/85">
               All of them. Our formulas are designed for sensitive, dry, combination, and oily skin alike. The honey base is naturally antibacterial and humectant, making it gentle even on reactive or post-procedure lips.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="q5">
-            <AccordionTrigger className="text-lg font-display">Is HONÉE vegan?</AccordionTrigger>
+            <AccordionTrigger className="text-lg font-sans">Is HONÉE vegan?</AccordionTrigger>
             <AccordionContent className="text-base leading-relaxed text-foreground/85">
               Our products contain honey and beeswax, so they are not vegan. They are vegetarian, and every bee-derived ingredient is ethically sourced from apiaries that prioritize hive welfare over yield.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="q6">
-            <AccordionTrigger className="text-lg font-display">Are the products safe during pregnancy?</AccordionTrigger>
+            <AccordionTrigger className="text-lg font-sans">Are the products safe during pregnancy?</AccordionTrigger>
             <AccordionContent className="text-base leading-relaxed text-foreground/85">
               Yes. We avoid retinoids, salicylic acid, and essential oils flagged as pregnancy-cautious. As always, we recommend checking with your doctor if you have specific concerns.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="q7">
-            <AccordionTrigger className="text-lg font-display">How long does each product last?</AccordionTrigger>
+            <AccordionTrigger className="text-lg font-sans">How long does each product last?</AccordionTrigger>
             <AccordionContent className="text-base leading-relaxed text-foreground/85">
               With daily use, the balm and gloss last about 3–4 months, the oil 2–3 months, and the scrub 6 months. Each product is good for 12 months after opening.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="q8">
-            <AccordionTrigger className="text-lg font-display">Do you offer corporate gifting or bulk orders?</AccordionTrigger>
+            <AccordionTrigger className="text-lg font-sans">Do you offer corporate gifting or bulk orders?</AccordionTrigger>
             <AccordionContent className="text-base leading-relaxed text-foreground/85">
               We do — visit our <a href="/contact" className="underline">contact page</a> to start a conversation about custom gifting, event favors, or wholesale.
             </AccordionContent>
