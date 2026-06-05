@@ -6,7 +6,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import heroCollection from "@/assets/hero-collection.jpg";
+import beekeeperFrame from "@/assets/about/beekeeper-frame.jpg";
+import honeycomb from "@/assets/about/honeycomb.jpg";
+import beekeeperHive from "@/assets/about/beekeeper-hive.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -52,8 +54,44 @@ function About() {
       </section>
 
       <section className="mx-auto max-w-[1400px] px-6 md:px-10 pb-32">
-        <div className="aspect-[16/9] overflow-hidden" style={{ boxShadow: "var(--shadow-warm)" }}>
-          <img src={heroCollection} alt="HONÉE collection" className="w-full h-full object-cover" />
+        <div className="grid grid-cols-12 gap-4 md:gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="col-span-12 md:col-span-7 md:row-span-2 aspect-[3/4] md:aspect-auto md:min-h-[640px] overflow-hidden"
+            style={{ boxShadow: "var(--shadow-warm)" }}
+          >
+            <img src={beekeeperFrame} alt="Beekeeper inspecting a honeycomb frame at golden hour" className="w-full h-full object-cover" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="col-span-7 md:col-span-5 aspect-[4/5] overflow-hidden"
+            style={{ boxShadow: "var(--shadow-warm)" }}
+          >
+            <img src={honeycomb} alt="Raw honeycomb dripping between hands" className="w-full h-full object-cover" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="col-span-5 md:col-span-5 aspect-[4/5] overflow-hidden self-end"
+            style={{ boxShadow: "var(--shadow-warm)" }}
+          >
+            <img src={beekeeperHive} alt="Beekeeper lifting a brood frame from the hive" className="w-full h-full object-cover" />
+          </motion.div>
+        </div>
+        <div className="mt-10 flex items-center gap-6 max-w-[1100px] mx-auto">
+          <div className="h-px flex-1 bg-foreground/15" />
+          <p className="text-[11px] uppercase tracking-[0.32em] text-foreground/60 text-center">
+            From hive to lip — every batch traceable
+          </p>
+          <div className="h-px flex-1 bg-foreground/15" />
         </div>
       </section>
 
