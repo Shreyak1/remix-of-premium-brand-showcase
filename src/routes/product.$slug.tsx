@@ -2,6 +2,8 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { getProduct, products } from "@/lib/products";
 import { useCart } from "@/lib/cart";
+import { MagneticButton } from "@/components/site/MagneticButton";
+import { easeOutExpo } from "@/lib/motion";
 
 export const Route = createFileRoute("/product/$slug")({
   loader: ({ params }) => {
@@ -54,12 +56,18 @@ function ProductPage() {
             {product.images.map((src: string, i: number) => (
               <motion.div
                 key={src}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1.2, delay: i * 0.15, ease: easeOutExpo }}
                 className="aspect-[4/5] overflow-hidden bg-muted"
               >
-                <img src={src} alt={`${product.name} ${i + 1}`} className="w-full h-full object-cover" />
+                <motion.img
+                  src={src}
+                  alt={`${product.name} ${i + 1}`}
+                  className="w-full h-full object-cover"
+                  animate={i === 0 ? { y: [0, -6, 0] } : undefined}
+                  transition={i === 0 ? { duration: 7, repeat: Infinity, ease: "easeInOut" } : undefined}
+                />
               </motion.div>
             ))}
           </div>
@@ -80,14 +88,14 @@ function ProductPage() {
                 <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">15 ml — small batch</span>
               </div>
 
-              <button
+              <MagneticButton
                 onClick={() =>
                   add({ slug: product.slug, name: product.name, price: product.price, image: product.images[0] })
                 }
                 className="mt-6 w-full bg-foreground text-background py-5 text-[12px] uppercase tracking-[0.22em] hover:bg-caramel transition-colors"
               >
                 Add to Bag
-              </button>
+              </MagneticButton>
 
               <div className="mt-12 space-y-6 border-t border-border/60 pt-8">
                 <div>
