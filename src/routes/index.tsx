@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useAnimationFrame,
   wrap,
+  type MotionValue,
 } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { useRef } from "react";
@@ -244,11 +245,7 @@ function Index() {
   );
 }
 
-function VelocityMarquee({
-  velocityFactor,
-}: {
-  velocityFactor: ReturnType<typeof useTransform<number, number>>;
-}) {
+function VelocityMarquee({ velocityFactor }: { velocityFactor: MotionValue<number> }) {
   const baseX = useMotionValue(0);
   const x = useTransform(baseX, (v) => `${wrap(-50, 0, v)}%`);
   const directionFactor = useRef(1);
