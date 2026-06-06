@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { products } from "@/lib/products";
-import heroCollection from "@/assets/hero-collection.jpg";
+import heroCollection from "@/assets/hero-collection.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
