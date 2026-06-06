@@ -79,7 +79,7 @@ function Index() {
           >
             <div className="w-full overflow-hidden" style={{ boxShadow: "var(--shadow-warm)" }}>
               <motion.img
-                src={heroCollection}
+                src={heroCollection.url}
                 alt="HONÉE collection"
                 className="w-full h-full object-cover"
                 initial={{ scale: 1.15 }}
