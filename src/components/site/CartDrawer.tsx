@@ -14,6 +14,7 @@ export function CartDrawer() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             onClick={() => setOpen(false)}
             className="fixed inset-0 z-50 bg-cocoa/40 backdrop-blur-sm"
           />
@@ -21,7 +22,7 @@ export function CartDrawer() {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "tween", ease: [0.22, 1, 0.36, 1], duration: 0.5 }}
+            transition={{ type: "spring", stiffness: 180, damping: 24, mass: 1 }}
             className="fixed right-0 top-0 z-50 h-full w-full sm:w-[440px] bg-cream flex flex-col"
           >
             <div className="flex items-center justify-between px-8 py-6 border-b border-border/50">
@@ -47,9 +48,27 @@ export function CartDrawer() {
                   </Link>
                 </div>
               ) : (
-                <ul className="space-y-6">
+                <motion.ul
+                  className="space-y-6"
+                  initial="hidden"
+                  animate="visible"
+                  variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.08, delayChildren: 0.25 } },
+                  }}
+                >
+                  <AnimatePresence initial={false}>
                   {items.map((item) => (
-                    <li key={item.slug} className="flex gap-4">
+                    <motion.li
+                      key={item.slug}
+                      layout
+                      variants={{
+                        hidden: { opacity: 0, x: 30 },
+                        visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+                      }}
+                      exit={{ opacity: 0, x: 30, transition: { duration: 0.3 } }}
+                      className="flex gap-4"
+                    >
                       <div className="w-20 h-24 bg-muted overflow-hidden">
                         <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                       </div>
@@ -61,7 +80,7 @@ export function CartDrawer() {
                         <div className="flex items-center justify-between text-xs">
                           <div className="flex items-center border border-border">
                             <button onClick={() => update(item.slug, item.quantity - 1)} className="px-2 py-1">−</button>
-                            <span className="px-3">{item.quantity}</span>
+                            <motion.span layout className="px-3">{item.quantity}</motion.span>
                             <button onClick={() => update(item.slug, item.quantity + 1)} className="px-2 py-1">+</button>
                           </div>
                           <button onClick={() => remove(item.slug)} className="uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground">
@@ -69,9 +88,10 @@ export function CartDrawer() {
                           </button>
                         </div>
                       </div>
-                    </li>
+                    </motion.li>
                   ))}
-                </ul>
+                  </AnimatePresence>
+                </motion.ul>
               )}
             </div>
             {items.length > 0 && (
