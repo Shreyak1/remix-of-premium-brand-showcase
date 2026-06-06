@@ -166,7 +166,7 @@ function Index() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {products.map((p, idx) => (
+          {products.map((p) => (
             <motion.div key={p.slug} variants={diagonalChild}>
               <TiltCard className="group block">
                 <Link to="/product/$slug" params={{ slug: p.slug }} className="block">
