@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useCart, cartCount } from "@/lib/cart";
 import logo from "@/assets/honee-logo.png";
-import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useState } from "react";
 
 function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
