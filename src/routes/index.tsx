@@ -177,7 +177,6 @@ function Index() {
                       className="absolute inset-0 w-full h-full object-cover"
                       whileHover={{ scale: 1.06 }}
                       transition={{ type: "spring", stiffness: 120, damping: 18 }}
-                      animate={{ y: [0, -4, 0] }}
                     />
                   </div>
                   <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60">{p.type}</p>
