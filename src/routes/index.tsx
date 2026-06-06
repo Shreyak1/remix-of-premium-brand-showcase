@@ -1,5 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion, useScroll, useTransform, useSpring, useVelocity } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useVelocity,
+  useMotionValue,
+  useAnimationFrame,
+  wrap,
+} from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { useRef } from "react";
 import { products } from "@/lib/products";
@@ -240,21 +249,25 @@ function VelocityMarquee({
 }: {
   velocityFactor: ReturnType<typeof useTransform<number, number>>;
 }) {
-  const baseX = useRef(0);
-  const x = useTransform(velocityFactor, (v) => {
-    baseX.current = (baseX.current - 0.6 - Math.abs(v) * 0.4) % 50;
-    return `${baseX.current}%`;
+  const baseX = useMotionValue(0);
+  const x = useTransform(baseX, (v) => `${wrap(-50, 0, v)}%`);
+  const directionFactor = useRef(1);
+
+  useAnimationFrame((_t, delta) => {
+    let moveBy = directionFactor.current * -1 * (delta / 1000) * 4; // base speed
+    const v = velocityFactor.get();
+    if (v < 0) directionFactor.current = -1;
+    else if (v > 0) directionFactor.current = 1;
+    moveBy += directionFactor.current * moveBy * Math.abs(v) * 0.5;
+    baseX.set(baseX.get() + moveBy);
   });
 
-  // Above approach can't read deps; use a simple infinite CSS-driven baseline + velocity-driven extra translate.
   return (
     <motion.div
       className="flex gap-16 whitespace-nowrap font-display text-3xl md:text-5xl will-change-transform"
-      animate={{ x: ["0%", "-50%"] }}
-      transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-      style={{ x: undefined }}
+      style={{ x }}
     >
-      {Array.from({ length: 2 }).map((_, i) => (
+      {Array.from({ length: 4 }).map((_, i) => (
         <div key={i} className="flex gap-16 items-center shrink-0">
           <span>Honey, Look Here</span>
           <span className="text-caramel">✺</span>
