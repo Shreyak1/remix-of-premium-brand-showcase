@@ -67,8 +67,8 @@ function ProductPage() {
           {/* Info */}
           <div className="md:col-span-5">
             <div className="md:sticky md:top-28">
-              <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60">{product.type}</p>
-              <h1 className="font-display text-5xl md:text-7xl leading-[1.2] mt-5">
+              <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-10">{product.type}</p>
+              <h1 className="font-display text-5xl md:text-7xl leading-[1.3]">
                 {product.name.split(",")[0]},
                 <br />
                 <span className="italic text-caramel">{product.name.split(",")[1]?.trim()}.</span>
