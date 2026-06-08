@@ -1,26 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useVelocity,
-  useMotionValue,
-  useAnimationFrame,
-  wrap,
-  type MotionValue,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
-import { useRef } from "react";
 import { products } from "@/lib/products";
 import heroCollection from "@/assets/hero-collection.png.asset.json";
-import { TiltCard } from "@/components/site/TiltCard";
-import { WordReveal } from "@/components/site/WordReveal";
-import {
-  diagonalContainer,
-  diagonalChild,
-  easeOutExpo,
-} from "@/lib/motion";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -35,33 +17,10 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: heroProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const heroImgY = useTransform(heroProgress, [0, 1], ["0%", "-18%"]);
-  const heroImgScale = useTransform(heroProgress, [0, 1], [1, 1.08]);
-
-  // Marquee speed coupled to scroll velocity.
-  const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, { damping: 40, stiffness: 200 });
-  const velocityFactor = useTransform(smoothVelocity, [-1500, 0, 1500], [-3, 1, 3], {
-    clamp: false,
-  });
-
-  const ritualRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: ritualProgress } = useScroll({
-    target: ritualRef,
-    offset: ["start end", "end start"],
-  });
-  const ritualScale = useTransform(ritualProgress, [0, 1], [1.05, 1.18]);
-
   return (
     <>
       {/* HERO */}
-      <section ref={heroRef} className="relative overflow-hidden">
+      <section className="relative overflow-hidden">
         <div
           className="absolute inset-0 -z-10"
           style={{ background: "var(--gradient-warm)" }}
@@ -71,22 +30,25 @@ function Index() {
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: easeOutExpo }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-6"
             >
               The Honey Ritual — Vol. 01
             </motion.p>
-            <h1
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
               className="font-display text-[11vw] md:text-[5.5rem] lg:text-[6.5rem] tracking-[-0.02em]"
               style={{ lineHeight: 1.6 }}
             >
-              <WordReveal as="span" inView={false} text="Honey," className="block" />
-              <WordReveal as="span" inView={false} text="Please." className="block italic text-caramel" />
-            </h1>
+              <span className="block">Honey,</span>
+              <span className="block italic text-caramel">Please.</span>
+            </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: easeOutExpo, delay: 0.7 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
               className="mt-10 max-w-md text-base md:text-lg leading-relaxed text-foreground/75"
             >
               Lipcare composed like couture. Honey-inspired botanicals, slow-rendered textures, and a finish that lingers like late afternoon light.
@@ -94,7 +56,7 @@ function Index() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
               className="mt-8 flex items-center gap-6"
             >
               <Link
@@ -112,36 +74,42 @@ function Index() {
           <motion.div
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.4, ease: easeOutExpo, delay: 0.2 }}
+            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="md:col-span-5 relative flex"
           >
-            <motion.div
-              className="w-full overflow-hidden"
-              style={{ boxShadow: "var(--shadow-warm)", y: heroImgY, scale: heroImgScale }}
-            >
+            <div className="w-full overflow-hidden" style={{ boxShadow: "var(--shadow-warm)" }}>
               <motion.img
                 src={heroCollection.url}
                 alt="HONÉE collection"
                 className="w-full h-full object-cover"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                initial={{ scale: 1.15 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
               />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.7, rotate: 8 }}
-              animate={{ opacity: 1, scale: 1, rotate: -3 }}
-              transition={{ type: "spring", stiffness: 180, damping: 14, delay: 1.4 }}
-              className="absolute -bottom-4 -left-4 bg-honey px-4 py-3 text-[10px] uppercase tracking-[0.22em] text-cocoa"
-            >
+            </div>
+            <div className="absolute -bottom-4 -left-4 bg-honey px-4 py-3 text-[10px] uppercase tracking-[0.22em] text-cocoa">
               New — Four-Piece Ritual
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* MARQUEE */}
       <section className="border-y border-border/40 overflow-hidden py-6 bg-[oklch(0.93_0.04_78)]">
-        <VelocityMarquee velocityFactor={velocityFactor} />
+        <div className="flex gap-16 animate-[marquee_40s_linear_infinite] whitespace-nowrap font-display text-3xl md:text-5xl">
+          {Array.from({ length: 2 }).map((_, i) => (
+            <div key={i} className="flex gap-16 items-center">
+              <span>Honey, Look Here</span>
+              <span className="text-caramel">✺</span>
+              <span className="italic">Honey, Good Night</span>
+              <span className="text-caramel">✺</span>
+              <span>Honey, Drippin'</span>
+              <span className="text-caramel">✺</span>
+              <span className="italic">Honey, All Day</span>
+              <span className="text-caramel">✺</span>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* FEATURED PRODUCTS */}
@@ -150,8 +118,8 @@ function Index() {
           <div>
             <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-6">The Collection</p>
             <h2 className="font-display text-5xl md:text-7xl leading-[1.2]">
-              <WordReveal text="Four pieces." className="block" />
-              <WordReveal text="One ritual." className="block italic text-caramel" />
+              Four pieces.<br />
+              <span className="italic text-caramel">One ritual.</span>
             </h2>
           </div>
           <Link to="/shop" className="text-[12px] uppercase tracking-[0.22em] border-b border-foreground pb-1 self-start md:self-auto">
@@ -159,37 +127,33 @@ function Index() {
           </Link>
         </div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-16"
-          variants={diagonalContainer(4)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {products.map((p) => (
-            <motion.div key={p.slug} variants={diagonalChild}>
-              <TiltCard className="group block">
-                <Link to="/product/$slug" params={{ slug: p.slug }} className="block">
-                  <div className="aspect-[4/5] overflow-hidden bg-muted mb-5 relative">
-                    <motion.img
-                      src={p.images[0]}
-                      alt={p.name}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      whileHover={{ scale: 1.06 }}
-                      transition={{ type: "spring", stiffness: 120, damping: 18 }}
-                    />
-                  </div>
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60">{p.type}</p>
-                  <h3 className="font-display text-2xl mt-4 leading-tight">{p.name}</h3>
-                  <div className="mt-4 flex justify-between items-center text-sm">
-                    <span className="text-muted-foreground">{p.tagline}</span>
-                    <span>${p.price}</span>
-                  </div>
-                </Link>
-              </TiltCard>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-16">
+          {products.map((p, idx) => (
+            <motion.div
+              key={p.slug}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Link to="/product/$slug" params={{ slug: p.slug }} className="group block">
+                <div className="aspect-[4/5] overflow-hidden bg-muted mb-5">
+                  <img
+                    src={p.images[0]}
+                    alt={p.name}
+                    className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                  />
+                </div>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/60">{p.type}</p>
+                <h3 className="font-display text-2xl mt-4 leading-tight">{p.name}</h3>
+                <div className="mt-4 flex justify-between items-center text-sm">
+                  <span className="text-muted-foreground">{p.tagline}</span>
+                  <span>${p.price}</span>
+                </div>
+              </Link>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
       {/* STORY STRIP */}
@@ -197,8 +161,8 @@ function Index() {
         <div className="mx-auto max-w-[1100px] px-6 md:px-10 text-center">
           <p className="text-[11px] uppercase tracking-[0.28em] text-cream/60 mb-10">Our Philosophy</p>
           <h2 className="font-display text-5xl md:text-8xl leading-[1.2]">
-            <WordReveal text="Slow as honey." className="block" />
-            <WordReveal text="Made to linger." className="block italic" wordClassName="" />
+            Slow as honey.<br />
+            <span className="italic" style={{ color: "var(--honey)" }}>Made to linger.</span>
           </h2>
           <p className="mt-10 max-w-xl mx-auto text-base md:text-lg text-cream/75 leading-relaxed">
             Every formula is rendered in small batches with honey-inspired botanicals and a quiet sense of patience. Nothing rushed. Nothing wasted. Just lips, softened.
@@ -217,8 +181,8 @@ function Index() {
         <div className="space-y-8">
           <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60">The Daily Ritual</p>
           <h2 className="font-display text-5xl md:text-7xl leading-[1.2]">
-            <WordReveal text="Sunrise to" className="block" />
-            <WordReveal text="soft sleep." className="block italic text-caramel" />
+            Sunrise to<br />
+            <span className="italic text-caramel">soft sleep.</span>
           </h2>
           <p className="max-w-md text-base md:text-lg leading-relaxed text-foreground/75">
             Four pieces, four small gestures — a balm to wake with, a gloss for the daylight, a scrub before the pillow, and an oil to drift off in. Read the whole ritual in the Journal.
@@ -230,50 +194,10 @@ function Index() {
             Read The Honey Ritual →
           </Link>
         </div>
-        <div ref={ritualRef} className="aspect-[4/5] overflow-hidden" style={{ boxShadow: "var(--shadow-soft)" }}>
-          <motion.img
-            src={products[2].images[0]}
-            alt="Honey, Drippin' lip oil"
-            className="w-full h-full object-cover"
-            style={{ scale: ritualScale }}
-          />
+        <div className="aspect-[4/5] overflow-hidden" style={{ boxShadow: "var(--shadow-soft)" }}>
+          <img src={products[2].images[0]} alt="Honey, Drippin' lip oil" className="w-full h-full object-cover" />
         </div>
       </section>
     </>
-  );
-}
-
-function VelocityMarquee({ velocityFactor }: { velocityFactor: MotionValue<number> }) {
-  const baseX = useMotionValue(0);
-  const x = useTransform(baseX, (v) => `${wrap(-50, 0, v)}%`);
-  const directionFactor = useRef(1);
-
-  useAnimationFrame((_t, delta) => {
-    let moveBy = directionFactor.current * -1 * (delta / 1000) * 4; // base speed
-    const v = velocityFactor.get();
-    if (v < 0) directionFactor.current = -1;
-    else if (v > 0) directionFactor.current = 1;
-    moveBy += directionFactor.current * moveBy * Math.abs(v) * 0.5;
-    baseX.set(baseX.get() + moveBy);
-  });
-
-  return (
-    <motion.div
-      className="flex gap-16 whitespace-nowrap font-display text-3xl md:text-5xl will-change-transform"
-      style={{ x }}
-    >
-      {Array.from({ length: 4 }).map((_, i) => (
-        <div key={i} className="flex gap-16 items-center shrink-0">
-          <span>Honey, Look Here</span>
-          <span className="text-caramel">✺</span>
-          <span className="italic">Honey, Good Night</span>
-          <span className="text-caramel">✺</span>
-          <span>Honey, Drippin'</span>
-          <span className="text-caramel">✺</span>
-          <span className="italic">Honey, All Day</span>
-          <span className="text-caramel">✺</span>
-        </div>
-      ))}
-    </motion.div>
   );
 }
