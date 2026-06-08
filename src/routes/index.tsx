@@ -116,8 +116,8 @@ function Index() {
       <section className="mx-auto max-w-[1400px] px-6 md:px-10 py-24 md:py-32">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-6">The Collection</p>
-            <h2 className="font-display text-5xl md:text-7xl leading-[1.2]">
+            <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/60 mb-10">The Collection</p>
+            <h2 className="font-display text-5xl md:text-7xl leading-[1.3]">
               Four pieces.<br />
               <span className="italic text-caramel">One ritual.</span>
             </h2>
