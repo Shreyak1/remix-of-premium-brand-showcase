@@ -1,15 +1,15 @@
-import gloss1 from "@/assets/products/gloss-1.jpg";
-import gloss2 from "@/assets/products/gloss-2.jpg";
-import gloss3 from "@/assets/products/gloss-3.jpg";
-import scrub1 from "@/assets/products/scrub-1.jpg";
-import scrub2 from "@/assets/products/scrub-2.jpg";
-import scrub3 from "@/assets/products/scrub-3.jpg";
-import oil1 from "@/assets/products/oil-1.jpg";
-import oil2 from "@/assets/products/oil-2.jpg";
-import oil3 from "@/assets/products/oil-3.jpg";
-import balm1 from "@/assets/products/balm-1.jpg";
-import balm2 from "@/assets/products/balm-2.jpg";
-import balm3 from "@/assets/products/balm-3.jpg";
+import gloss1 from "@/assets/products/gloss-1.webp";
+import gloss2 from "@/assets/products/gloss-2.webp";
+import gloss3 from "@/assets/products/gloss-3.webp";
+import scrub1 from "@/assets/products/scrub-1.webp";
+import scrub2 from "@/assets/products/scrub-2.webp";
+import scrub3 from "@/assets/products/scrub-3.webp";
+import oil1 from "@/assets/products/oil-1.webp";
+import oil2 from "@/assets/products/oil-2.webp";
+import oil3 from "@/assets/products/oil-3.webp";
+import balm1 from "@/assets/products/balm-1.webp";
+import balm2 from "@/assets/products/balm-2.webp";
+import balm3 from "@/assets/products/balm-3.webp";
 
 export type Product = {
   slug: string;
